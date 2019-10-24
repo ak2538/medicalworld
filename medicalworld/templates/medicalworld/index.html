@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Medical Supplies R' Us</title>
+  <meta name="description" content="Medical Supplies R' Us">
+  <meta name="Andrew Kim" content="SitePoint">
+
+  
+  <style>
+  h1 {text-align:center;}
+  p {text-align:center;}
+  
+ 
+  </style>
+
+</head>
+
+<body>
+ <body style="font-family:trebuchet ms;" > 
+ <h1> Welcome to Medical Supplies R' Us!</h1>
+ <p> We are the go-to center for medical equipment. We service and sell different types of medical equipment in our warehouse.</p>
+ <br>
+ 
+  <ul>
+    {% for MedEquipment in Med_equipments %}
+        <li>${{MedEquipment.Price}} - {{MedEquipment.EquipmentType}}</li>
+    {% endfor %}
+    </ul>
+
+ 
+</body>
+</html>
