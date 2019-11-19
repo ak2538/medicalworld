@@ -1,8 +1,13 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="
 
   <title>Medical Supplies R' Us</title>
   <meta name="description" content="Medical Supplies R' Us">
@@ -20,16 +25,29 @@
 
 <body>
  <body style="font-family:trebuchet ms;" > 
- <h1> Welcome to Medical Supplies R' Us!</h1>
+ <h1>Welcome to Medical Supplies R' Us!</h1>
  <p> We are the go-to center for medical equipment. We service and sell different types of medical equipment in our warehouse.</p>
  <br>
+ <div align = "center">
+ <img src = "{% static 'medicalworld/images/pulseoxi.jpg' %}" alt = "PulseOXI" width = "600" height = "423">
  
   <ul>
     {% for MedEquipment in Med_equipments %}
         <li>${{MedEquipment.Price}} - {{MedEquipment.EquipmentType}}</li>
     {% endfor %}
     </ul>
-
+	{% block content %}
+	<form action="/your-name/" method="post">
+	<label for="your_name">Type in equipment selection </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+	{% csrf_token %}
+	<table border="1">
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit">
+	{% endblock %}
+</form>
+</div>
  
 </body>
 </html>
